@@ -1,0 +1,76 @@
+{
+  "trade": "plumber",
+  "business": {
+    "name": "Replace with Client Name",
+    "legalName": "",
+    "shortDescription": "Short one-line description of the business",
+    "description": "Longer description for structured data / SEO",
+    "slogan": "",
+    "foundingDate": "",
+    "phone": "0161 000 0000",
+    "email": "info@example.com",
+    "website": "https://www.example.com",
+    "whatsappNumber": "",
+    "priceRange": "££",
+    "differentiators": [
+      "What genuinely sets this client apart #1 (true + confirmed only)",
+      "Differentiator #2",
+      "Differentiator #3"
+    ],
+    "yearsTrading": ""
+  },
+  "address": {
+    "streetAddress": "123 Example Street",
+    "addressLocality": "Manchester",
+    "addressRegion": "Greater Manchester",
+    "postalCode": "M1 1AA",
+    "addressCountry": "GB",
+    "latitude": 53.4808,
+    "longitude": -2.2426
+  },
+  "social": [
+    "https://facebook.com/example",
+    "https://instagram.com/example"
+  ],
+  "trust": {
+    "stat": { "headline": "", "sub": "" },
+    "accreditations": []
+  },
+  "reviews": {
+    "enabled": false,
+    "aggregate": { "ratingValue": 0, "reviewCount": 0, "bestRating": 5, "worstRating": 1 },
+    "platforms": []
+  },
+  "services": [
+    {
+      "name": "Service One",
+      "slug": "service-one",
+      "keyword": "",
+      "summary": "Brief summary of service one",
+      "details": "Real specifics the client confirmed about this service — what's included, brands fitted, typical jobs, any genuine guarantee. The ONLY facts the copy generator may state about it.",
+      "icon": "Wrench",
+      "order": 1
+    },
+    {
+      "name": "Service Two",
+      "slug": "service-two",
+      "keyword": "",
+      "summary": "Brief summary of service two",
+      "details": "Real specifics the client confirmed about this service.",
+      "icon": "Hammer",
+      "order": 2
+    }
+  ],
+  "areas": [
+    { "name": "Area One", "slug": "area-one", "order": 1 },
+    { "name": "Area Two", "slug": "area-two", "order": 2 },
+    { "name": "Area Three", "slug": "area-three", "order": 3 }
+  ],
+  "founder": {
+    "name": "Client Owner",
+    "jobTitle": "Owner",
+    "sameAs": ""
+  },
+  "openingHours": [],
+  "serviceAreaOnly": false
+}

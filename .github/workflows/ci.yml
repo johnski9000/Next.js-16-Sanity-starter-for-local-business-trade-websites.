@@ -1,0 +1,67 @@
+# CI — type safety + lint on every push / PR.
+#
+# The key guard is the "type drift" check: it regenerates Sanity types from the
+# studio schema + GROQ queries and fails if the committed frontend/sanity.types.ts
+# (or sanity.schema.json) is out of date. This stops the committed types from
+# silently diverging from the queries — which otherwise breaks `tsc` and the IDE
+# while `next build`'s prebuild step quietly papers over it.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Regenerate Sanity types
+        run: pnpm --filter frontend run sanity:typegen
+
+      - name: Fail if generated types are out of date
+        run: |
+          if ! git diff --exit-code frontend/sanity.types.ts sanity.schema.json; then
+            echo "::error::Sanity types are stale. Run 'pnpm -F frontend sanity:typegen' and commit the result."
+            exit 1
+          fi
+
+      - name: Type-check (frontend)
+        run: pnpm --filter frontend run type-check
+
+      - name: Type-check (studio)
+        run: pnpm --filter studio run type-check
+
+      - name: Tests (frontend)
+        run: pnpm --filter frontend run test
+
+      - name: Lint
+        run: pnpm --filter frontend run lint
+
+      # A broken build takes the site offline. Catch it
+      # at the PR gate, not post-merge at Vercel. Dummy Sanity env lets it compile
+      # (routes are dynamic, so no data fetch at build).
+      - name: Build (frontend)
+        run: pnpm --filter frontend run build
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ci-build
+          NEXT_PUBLIC_SANITY_DATASET: production
+          NEXT_PUBLIC_SANITY_API_VERSION: '2024-01-01'
+          SANITY_API_READ_TOKEN: ci-dummy-token

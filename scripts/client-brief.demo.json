@@ -1,0 +1,115 @@
+{
+  "_comment": "Worked example (fictional Vanguard Plumbing & Heating) — the structured twin of docs/CLIENT-CONTENT-BRIEF.demo.md. Copy to scripts/client-brief.json and run: node scripts/onboard-client.mjs",
+  "trade": "plumber",
+  "business": {
+    "name": "Vanguard Plumbing & Heating Contractors Ltd",
+    "legalName": "Vanguard Plumbing & Heating Contractors Ltd",
+    "shortDescription": "Gas Safe registered plumbing, heating, and bathroom specialists delivering premium boiler installations, emergency repairs, bespoke bathroom renovations, power flushing, and underfloor heating across Greater Manchester and North Cheshire.",
+    "description": "Vanguard Plumbing & Heating was founded by lead heating engineer Thomas Vance in 2011. We are a tightly knit, highly skilled team of local Gas Safe engineers, master tilers, and system designers — never subcontractors. We combine the bulletproof technical standards of a national firm with the deep care, strict punctuality, and upfront honest pricing of a trusted local family business. Worcester Bosch Diamond Accredited. Vaillant Advance Master. CIPHE & WaterSafe registered.",
+    "slogan": "Premium craftsmanship. Transparent pricing. Guaranteed peace of mind.",
+    "foundingDate": "2011-03-01",
+    "phone": "0161 555 0192",
+    "email": "enquiries@vanguardplumbing.example",
+    "website": "https://www.vanguardplumbing.example",
+    "whatsappNumber": "447700900076",
+    "priceRange": "£££"
+  },
+  "address": {
+    "streetAddress": "24 Grosvenor Road",
+    "addressLocality": "Altrincham",
+    "addressRegion": "Greater Manchester",
+    "postalCode": "WA14 1LD",
+    "addressCountry": "GB",
+    "latitude": 53.3831,
+    "longitude": -2.3534
+  },
+  "social": [
+    "https://www.facebook.com/vanguardplumbingandheating",
+    "https://www.instagram.com/vanguardplumbingmcr",
+    "https://www.linkedin.com/company/vanguard-plumbing-heating",
+    "https://www.checkatrade.com/trades/vanguardplumbing",
+    "https://uk.trustpilot.com/review/vanguardplumbing.example"
+  ],
+  "trust": {
+    "stat": { "headline": "Since 2011", "sub": "13+ years · Gas Safe registered · 2,000+ jobs completed" },
+    "accreditations": [
+      { "icon": "ShieldCheck", "title": "Gas Safe Registered", "sub": "Reg. 554321" },
+      { "icon": "Award", "title": "Worcester Bosch Diamond", "sub": "Accredited Installer" },
+      { "icon": "BadgeCheck", "title": "CIPHE & WaterSafe", "sub": "Registered members" }
+    ]
+  },
+  "reviews": {
+    "_comment": "Reviews stay disabled by default (DMCC Act 2024 — no fabricated ratings). Set enabled:true and fill aggregate/platforms ONLY with real, publicly visible reviews.",
+    "enabled": false,
+    "aggregate": { "ratingValue": 0, "reviewCount": 0, "bestRating": 5, "worstRating": 1 },
+    "platforms": []
+  },
+  "services": [
+    {
+      "name": "Boiler Installation & Heating Upgrades",
+      "slug": "boiler-installation-heating-upgrades",
+      "summary": "Premium ErP A-rated condensing boiler installations with 12-year manufacturer warranties. Worcester Bosch Diamond & Vaillant Advance accredited.",
+      "icon": "Flame",
+      "order": 1
+    },
+    {
+      "name": "Emergency Plumbing Repairs",
+      "slug": "emergency-plumbing-repairs",
+      "summary": "24/7 rapid-response emergency plumbing with thermal imaging leak detection. Under-60-minute average arrival across Greater Manchester.",
+      "icon": "Siren",
+      "order": 2
+    },
+    {
+      "name": "Luxury Bathroom Design & Renovation",
+      "slug": "bathroom-design-renovation",
+      "summary": "Complete turn-key bathroom transformations — 3D CAD design, in-house tilers, plumbers, and electricians. No subcontractors, single point of accountability.",
+      "icon": "Bath",
+      "order": 3
+    },
+    {
+      "name": "Gas Safety Certificates & Boiler Servicing",
+      "slug": "gas-safety-certificates-boiler-servicing",
+      "summary": "Landlord CP12 certificates and deep 15-point annual boiler servicing. Instant digital certification, lifetime reminder scheduling.",
+      "icon": "ShieldCheck",
+      "order": 4
+    },
+    {
+      "name": "Power Flushing & System Deep Clean",
+      "slug": "power-flushing-system-clean",
+      "summary": "Industrial-grade Kamco power flushing with magnetic filtration. Restores radiator output, silences noisy boilers, and extends system lifespan without replacement.",
+      "icon": "Droplet",
+      "order": 5
+    },
+    {
+      "name": "Underfloor Heating Design & Installation",
+      "slug": "underfloor-heating-installation",
+      "summary": "Bespoke wet underfloor heating systems — overlay retrofit and in-screed new-build. Room-by-room BS EN 12831 heat loss design by in-house engineers.",
+      "icon": "Thermometer",
+      "order": 6
+    }
+  ],
+  "areas": [
+    { "name": "Altrincham", "slug": "altrincham", "order": 1 },
+    { "name": "Sale", "slug": "sale", "order": 2 },
+    { "name": "Stretford", "slug": "stretford", "order": 3 },
+    { "name": "Urmston", "slug": "urmston", "order": 4 },
+    { "name": "Chorlton", "slug": "chorlton", "order": 5 },
+    { "name": "Didsbury", "slug": "didsbury", "order": 6 },
+    { "name": "Stockport", "slug": "stockport", "order": 7 },
+    { "name": "Wilmslow", "slug": "wilmslow", "order": 8 },
+    { "name": "Cheadle", "slug": "cheadle", "order": 9 },
+    { "name": "Bramhall", "slug": "bramhall", "order": 10 },
+    { "name": "Timperley", "slug": "timperley", "order": 11 },
+    { "name": "Knutsford", "slug": "knutsford", "order": 12 }
+  ],
+  "founder": {
+    "name": "Thomas Vance",
+    "jobTitle": "Founder & Lead Heating Engineer",
+    "sameAs": "https://www.linkedin.com/in/thomasvance"
+  },
+  "openingHours": [
+    "Mo-Fr 08:00-18:00",
+    "Sa 08:00-13:00"
+  ],
+  "serviceAreaOnly": true
+}

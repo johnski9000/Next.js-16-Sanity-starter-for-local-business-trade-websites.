@@ -1,0 +1,26 @@
+Tier,Priority,Platform,URL,Cost,SAB Supported,Sector Relevance,Address Hide Option,Status,Listing URL,Date Submitted,Date Live,Notes
+1,1,Google Business Profile,https://www.google.com/business/,Free,Yes,General,Yes — toggle "hide my address" for SAB,Not Started,,,,"The single most important listing. For a service-area business, enable SAB mode and list every service-area town. NAP must match business-info.csv exactly."
+1,2,Bing Places for Business,https://www.bingplaces.com,Free,Yes,General,Yes — SAB mode hides address,Not Started,,,,"Microsoft's local index. Can import directly from Google Business Profile for faster setup."
+1,3,Apple Business Connect,https://businessconnect.apple.com,Free,Yes,General,Yes — SAB supported,Not Started,,,,"Apple Maps + Siri visibility. Verify via Apple ID."
+1,4,Yell.com,https://www.yell.com,Free (paid tier optional),Yes,General,Yes,Not Started,,,,"Established UK directory. Free listing; skip the paid upsell unless lead tracking justifies it."
+1,5,Trustpilot,https://business.trustpilot.com,Free (paid optional),Yes,General,N/A,Not Started,,,,"Set up a post-project review-request email flow. Only claim it if you will actually collect real reviews."
+1,6,Yelp UK,https://biz.yelp.co.uk,Free,Yes,General,Yes,Not Started,,,,"Worth a clean listing for citation consistency."
+1,7,Foursquare for Business,https://business.foursquare.com,Free,Yes,General,Yes,Not Started,,,,"Feeds downstream listings; quick free entry."
+,,,,,,,,,,,,
+2,8,Companies House,https://find-and-update.company-information.service.gov.uk,Free,N/A,General,N/A — registered address public,Not Started,,,,"If the business is a Ltd company, confirm the registered office address matches the canonical NAP."
+2,9,FreeIndex,https://www.freeindex.co.uk,Free,Yes,General,Yes,Not Started,,,,"Solid UK directory. Pick the categories that match the client's trade."
+2,10,Hotfrog UK,https://www.hotfrog.co.uk,Free,Yes,General,Yes,Not Started,,,,"Moderate authority, free tier sufficient."
+2,11,Cylex UK,https://www.cylex-uk.co.uk,Free,Yes,General,Yes,Not Started,,,,"Moderate UK directory."
+2,12,192.com,https://www.192.com,Free,Yes,General,Yes,Not Started,,,,"Long-established UK directory; free business listing."
+2,13,Thomson Local,https://www.thomsonlocal.com,Free,Yes,General,Yes,Not Started,,,,"Established UK local directory."
+,,,,,,,,,,,,
+3,14,[Local council business directory],,Free,Yes,Regional,Yes,Not Started,,,,"Find the client's local council business directory and list there to anchor the address/region."
+3,15,[Regional newspaper business directory],,Free / editorial,Yes,Regional,Yes,Not Started,,,,"Regional press directory + a possible digital-PR route for genuine local stories."
+3,16,[Local Chamber of Commerce],,Paid (membership),Yes,Regional B2B,Yes,Not Started,,,,"Membership-based; higher authority. Consider once revenue justifies the membership fee."
+3,17,[Trade / sector association directory],,Varies,Yes,Sector,Yes,Not Started,,,,"List the client's trade body (e.g. Gas Safe, NICEIC, FMB) if membership applies — strong sector-relevant citation."
+,,,,,,,,,,,,
+4,18,[Sector lead / review platform],,Varies,Yes,Sector,Yes,Not Started,,,,"Sector-specific lead or review platform relevant to the client's trade (e.g. Checkatrade, Rated People, Bark for trades). A/B test lead quality before committing spend."
+,,,,,,,,,,,,
+SKIP,—,Mass-submission services (BrightLocal etc.),—,Paid,Sometimes,—,—,Skip,—,—,—,"Skip. Google no longer values bulk-submitted citations from low-quality directories — the work has shifted to fewer, higher-authority listings."
+SKIP,—,Generic 'free business directory' aggregators,—,Free,—,—,—,Skip,—,—,—,"Skip. Low-quality aggregators don't move local rankings and can hurt NAP consistency if data is wrong."
+SKIP,—,Pay-for-inclusion 'top 10' listicle sites,—,Paid,—,—,—,Skip,—,—,—,"Skip. Pay-for-inclusion listicles are a low-trust signal; genuine editorial coverage is far better."

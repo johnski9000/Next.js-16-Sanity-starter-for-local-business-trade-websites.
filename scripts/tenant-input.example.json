@@ -1,0 +1,27 @@
+{
+  "key": "acme-plumbing",
+  "hosts": ["www.acme-plumbing.co.uk", "acme-plumbing.co.uk"],
+  "projectId": "<the client's Sanity projectId>",
+  "dataset": "production",
+  "readToken": "<the client's VIEWER (read-only) Sanity token>",
+  "writeToken": "<optional EDITOR token for lead capture — OR leave out and set WRITE_TOKEN_ACME_PLUMBING in Vercel env>",
+  "siteUrl": "https://www.acme-plumbing.co.uk",
+  "theme": "plumber",
+  "active": true,
+  "branding": { "siteName": "Acme Plumbing", "design": "navy" },
+  "mail": {
+    "leadEmail": "enquiries@acme-plumbing.co.uk",
+    "host": "smtp.gmail.com",
+    "port": 465,
+    "secure": true,
+    "user": "enquiries@acme-plumbing.co.uk",
+    "pass": "<app password — OR leave blank and set SMTP_PASS_ACME_PLUMBING in Vercel env>",
+    "fromName": "Acme Plumbing"
+  },
+  "seo": {
+    "gscSiteUrl": "https://www.acme-plumbing.co.uk/",
+    "ga4PropertyId": "",
+    "gbpAccountId": "",
+    "gbpLocationId": ""
+  }
+}

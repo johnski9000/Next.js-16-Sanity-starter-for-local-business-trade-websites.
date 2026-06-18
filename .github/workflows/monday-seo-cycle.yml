@@ -1,0 +1,93 @@
+# Monday SEO cycle — GitHub Actions cron
+#
+# Runs the full weekly SEO stack every Monday at 08:00 UTC.
+# Writes output to frontend/seo/data/ — digest at:
+#   frontend/seo/data/monday-run-YYYY-MM-DD.md
+#
+# To enable:
+#   1. Add all required secrets to your GitHub repo:
+#      Settings → Secrets and variables → Actions → New repository secret
+#   2. Required secrets (see .env.example for descriptions):
+#      - SANITY_PROJECT_ID       (NEXT_PUBLIC_SANITY_PROJECT_ID)
+#      - SANITY_DATASET          (default: production)
+#      - SANITY_API_READ_TOKEN
+#      - GOOGLE_CLIENT_ID
+#      - GOOGLE_CLIENT_SECRET
+#      - GOOGLE_REFRESH_TOKEN
+#      - GA4_PROPERTY_ID
+#      - GSC_SITE_URL
+#      - NEXT_PUBLIC_SITE_URL
+#      - AHREF_API_KEY           (optional — Ahrefs steps skip if missing)
+#      - GBP_ACCOUNT_ID          (optional — GBP steps skip if missing)
+#      - GBP_LOCATION_ID         (optional)
+#      - NEXT_PUBLIC_GA_ID        (optional)
+#   3. Uncomment the schedule below and push.
+#
+# Note: GBP steps will show ⚠ (blocked-not-failed) until API quota
+# allowlist is approved. This is expected — no action needed.
+
+name: Monday SEO Cycle
+
+on:
+  # Uncomment to enable the weekly schedule:
+  # schedule:
+  #   - cron: '0 8 * * 1'   # Every Monday at 08:00 UTC
+  workflow_dispatch:         # Allow manual trigger from GitHub UI
+
+jobs:
+  monday-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Monday SEO cycle
+        # Secrets are injected straight into the process env — every toolkit
+        # script reads process.env first (loadEnv), and monday-runner forwards
+        # process.env to each child step.
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.SANITY_DATASET || 'production' }}
+          NEXT_PUBLIC_SANITY_API_VERSION: '2024-01-01'
+          SANITY_API_READ_TOKEN: ${{ secrets.SANITY_API_READ_TOKEN }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          AHREF_API_KEY: ${{ secrets.AHREF_API_KEY }}
+          GBP_ACCOUNT_ID: ${{ secrets.GBP_ACCOUNT_ID }}
+          GBP_LOCATION_ID: ${{ secrets.GBP_LOCATION_ID }}
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
+        run: node frontend/seo/monday-runner.mjs
+
+      - name: Upload digest as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: monday-seo-digest
+          path: frontend/seo/data/monday-run-*.md
+          retention-days: 90
+
+      - name: Upload data snapshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: monday-seo-data
+          path: frontend/seo/data/
+          retention-days: 90
